@@ -1,0 +1,48 @@
+# template can either be specified as either the relative or absolute path to the inputs.
+template: 'basalt_5-1.in'
+database: 'Dodd_100oc-100bar.dbs'
+aqueous_database:
+catabolic_pathways:
+# Timeout in seconds for any one input file.
+timeout: 600
+# conditions must match geochemical condition names in concentration dict
+conditions:
+    - 'f_i_onehundred'
+# Number of files in this run.
+number_of_files: 8000
+
+# Number of nodes to use if running in parallel. ESC Titan has 440 total (14-01-21)
+nodes: 200
+
+# Options for setting parameters:
+    # linspace
+    # random_uniform
+    # constant
+    # custom
+
+concentrations:
+    f_i_onehundred:
+        HCO3-:
+        - 'random_uniform'
+        - [0,8.2]
+        Al+++:
+        - 'random_uniform'
+        - [0,1.19E-2]
+        Ca++:
+        - 'random_uniform'
+        - [0,1.3E-3]
+        Fe++:
+        - 'random_uniform'
+        - [0,2.1E-4]
+        K+:
+        - 'random_uniform'
+        - [0,2.4E-4]
+        Mg++:
+        - 'random_uniform'
+        - [0,1.6E-3]
+        Na+:
+        - 'random_uniform'
+        - [0,2.04E-2]
+        SiO2(aq):
+        - 'random_uniform'
+        - [0,5.9E-3]

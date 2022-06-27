@@ -1,0 +1,640 @@
+
+  ************************** CRUNCH ******************************
+  ************************ VERSION 1.0 ***************************
+
+                      Author:  C.I. STEEFEL 
+  COPYRIGHT (c) 2000. The Regents of the University of California. 
+                       All Rights Reserved 
+
+  ****************************************************************
+  This work was produced at the University of California, Lawrence 
+  Livermore National Laboratory (UC LLNL) under contract no. W-7405-ENG-48 
+  (Contract 48) between the U.S. Department of Energy (DOE) and The Regents 
+  of the University of California (University) for the operation of UC LLNL. 
+  Copyright is reserved to the University for purposes of controlled dissem- 
+  ination, commercialization through formal licensing, or other disposition 
+  under terms of Contract 48; DOE policies, regulations and orders; and U.S. 
+  statutes. The rights of the Federal Government are reserved under Contract 
+  48 subject to the restrictions agreed upon by the DOE and University as 
+  allowed under DOE Acquisition Letter 97-1. 
+
+                                DISCLAIMER                            
+  This work was prepared as an account of work sponsored by an agency of the
+  United States Government. Neither the United States Government nor the 
+  University of California nor any of their employees, makes any warranty, 
+  express or implied, or assumes any liability or responsibility for the 
+  accuracy, completeness, or usefulness of any information, apparatus, product,
+  or process disclosed, or represents that its use would not infringe 
+  privately-owned rights.  Reference herein to any specific commercial products,
+  process, or service by trade name, trademark, manufacturer or otherwise does 
+  not necessarily constitute or imply its endorsement, recommendation, or 
+  favoring by the United States Government or the University of California. 
+  The views and opinions of authors expressed herein do not necessarily state 
+  or reflect those of the United States Government or the University of 
+  California, and shall not be used for advertising or product endorsement 
+  purposes. 
+  ****************************************************************
+
+
+  2022-05-05_basalt-cube-model_1-0                                        
+
+
+
+   ---> Using database: Dodd.dbs                                                                                            
+
+
+ Number of components =                     9
+
+  1 H+                
+  2 Al+++             
+  3 Ca++              
+  4 Cl-               
+  5 Fe++              
+  6 K+                
+  7 Mg++              
+  8 Na+               
+  9 SiO2(aq)          
+
+ Number of kinetic minerals =            0
+
+
+  Using database file: Dodd.dbs
+
+  temperature interpolation coefficients
+                  ln(T+Tk)        1         T+Tk      (T+Tk)**-1   (t+tk)**-2
+
+    HOMOGENEOUS REACTIONS
+
+ Species         log K         Stoichiometric Coefficients
+                            H+     Al+++  Ca++   Cl-    Fe++   K+     Mg++   Na+    SiO2(a 
+ Al(OH)2+      1.0594E+01  -2.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Al13O4(OH)24  9.8730E+01 -32.00  13.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Al2(OH)2++++  7.6902E+00  -2.00   2.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Al3(OH)4(5+)  1.3880E+01  -4.00   3.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ AlO2-         2.2879E+01  -4.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ AlOH++        4.9564E+00  -1.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ CaCl+         7.0039E-01   0.00   0.00   1.00   1.00   0.00   0.00   0.00   0.00   0.00
+ CaCl2(aq)     6.5346E-01   0.00   0.00   1.00   2.00   0.00   0.00   0.00   0.00   0.00
+ CaOH+         1.2850E+01  -1.00   0.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Fe(OH)2(aq)   2.0600E+01  -2.00   0.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00
+ Fe(OH)3-      3.1000E+01  -3.00   0.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00
+ Fe(OH)4--     4.6000E+01  -4.00   0.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00
+ FeCl+         1.6494E-01   0.00   0.00   0.00   1.00   1.00   0.00   0.00   0.00   0.00
+ FeCl2(aq)     2.4636E+00   0.00   0.00   0.00   2.00   1.00   0.00   0.00   0.00   0.00
+ FeCl4--      -1.9395E+00   0.00   0.00   0.00   4.00   1.00   0.00   0.00   0.00   0.00
+ FeOH+         9.5000E+00  -1.00   0.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00
+ H2SiO4--      2.2960E+01  -2.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ H4(H2SiO4)4-  3.5940E+01  -4.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   4.00
+ H6(H2SiO4)4-  1.3640E+01  -2.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   4.00
+ HAlO2(aq)     1.6431E+01  -3.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ HCl(aq)      -6.9993E-01   1.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00   0.00
+ HSiO3-        9.9422E+00  -1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ KCl(aq)       1.5004E+00   0.00   0.00   0.00   1.00   0.00   1.00   0.00   0.00   0.00
+ KOH(aq)       1.4460E+01  -1.00   0.00   0.00   0.00   0.00   1.00   0.00   0.00   0.00
+ Mg4(OH)4++++  3.9750E+01  -4.00   0.00   0.00   0.00   0.00   0.00   4.00   0.00   0.00
+ MgCl+         1.3865E-01   0.00   0.00   0.00   1.00   0.00   0.00   1.00   0.00   0.00
+ NaAlO2(aq)    2.3627E+01  -4.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00   0.00
+ NaCl(aq)      7.8213E-01   0.00   0.00   0.00   1.00   0.00   0.00   0.00   1.00   0.00
+ NaHSiO3(aq)   8.2984E+00  -1.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00   1.00
+ NaOH(aq)      1.4799E+01  -1.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00   0.00
+ OH-           1.3991E+01  -1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+
+      MINERAL REACTIONS
+
+ Mineral         log K         Stoichiometric Coefficients
+                            H+     Al+++  Ca++   Cl-    Fe++   K+     Mg++   Na+    SiO2(a 
+ Afwillite     6.0036E+01  -6.00   0.00   3.00   0.00   0.00   0.00   0.00   0.00   2.00
+ Akermanite    4.5309E+01  -6.00   0.00   2.00   0.00   0.00   0.00   1.00   0.00   2.00
+ Albite        2.7458E+00  -4.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00   3.00
+ Albite_high   4.0643E+00  -4.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00   3.00
+ Albite_low    2.7456E+00  -4.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00   3.00
+ Amesite-14A   7.5446E+01 -20.00   4.00   0.00   0.00   0.00   0.00   4.00   0.00   2.00
+ Analcime      6.1267E+00  -3.84   0.96   0.00   0.00   0.00   0.00   0.00   0.96   2.04
+ Analcime-deh  1.2489E+01  -3.84   0.96   0.00   0.00   0.00   0.00   0.00   0.96   2.04
+ Andalusite    1.5938E+01  -6.00   2.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Annite        2.9453E+01 -10.00   1.00   0.00   0.00   3.00   1.00   0.00   0.00   3.00
+ Anorthite     2.6566E+01  -8.00   2.00   1.00   0.00   0.00   0.00   0.00   0.00   2.00
+ Antarcticite  4.0933E+00   0.00   0.00   1.00   2.00   0.00   0.00   0.00   0.00   0.00
+ Anthophyllit  6.6749E+01 -14.00   0.00   0.00   0.00   0.00   0.00   7.00   0.00   8.00
+ Antigorite    4.7700E+02 -96.00   0.00   0.00   0.00   0.00   0.00  48.00   0.00  34.00
+ Beidellite-C  5.5681E+00  -7.32   2.33   0.17   0.00   0.00   0.00   0.00   0.00   3.67
+ Beidellite-H  4.6101E+00  -6.99   2.33   0.00   0.00   0.00   0.00   0.00   0.00   3.67
+ Beidellite-K  5.2854E+00  -7.32   2.33   0.00   0.00   0.00   0.33   0.00   0.00   3.67
+ Beidellite-M  5.5304E+00  -7.32   2.33   0.00   0.00   0.00   0.00   0.17   0.00   3.67
+ Beidellite-N  5.6240E+00  -7.32   2.33   0.00   0.00   0.00   0.00   0.00   0.33   3.67
+ Bischofite    4.3923E+00   0.00   0.00   0.00   2.00   0.00   0.00   1.00   0.00   0.00
+ Boehmite      7.5642E+00  -3.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Brucite       1.6298E+01  -2.00   0.00   0.00   0.00   0.00   0.00   1.00   0.00   0.00
+ Ca-Al_Pyroxe  3.5971E+01  -8.00   2.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Ca2Al2O5.8H2  5.9569E+01 -10.00   2.00   2.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Ca2Cl2(OH)2.  2.6290E+01  -2.00   0.00   2.00   2.00   0.00   0.00   0.00   0.00   0.00
+ Ca3Al2O6      1.1305E+02 -12.00   2.00   3.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Ca4Al2O7.13H  1.0725E+02 -14.00   2.00   4.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Ca4Al2O7.19H  1.0368E+02 -14.00   2.00   4.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Ca4Cl2(OH)6.  6.8328E+01  -6.00   0.00   4.00   2.00   0.00   0.00   0.00   0.00   0.00
+ CaAl2O4       4.6955E+01  -8.00   2.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00
+ CaAl2O4.10H2  3.7995E+01  -8.00   2.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00
+ CaAl4O7       6.8613E+01 -14.00   4.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Carnallite    4.2721E+00   0.00   0.00   0.00   3.00   0.00   1.00   1.00   0.00   0.00
+ Celadonite    7.4327E+00  -6.00   1.00   0.00   0.00   0.00   1.00   1.00   0.00   4.00
+ Chalcedony   -3.7344E+00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Chamosite-7A  3.2837E+01 -10.00   2.00   0.00   0.00   2.00   0.00   0.00   0.00   1.00
+ Chloromagnes  2.1869E+01   0.00   0.00   0.00   2.00   0.00   0.00   1.00   0.00   0.00
+ Chrysotile    3.1114E+01  -6.00   0.00   0.00   0.00   0.00   0.00   3.00   0.00   2.00
+ Clinochlore-  6.7222E+01 -16.00   2.00   0.00   0.00   0.00   0.00   5.00   0.00   3.00
+ Clinochlore-  7.0595E+01 -16.00   2.00   0.00   0.00   0.00   0.00   5.00   0.00   3.00
+ Clinozoisite  4.3240E+01 -13.00   3.00   2.00   0.00   0.00   0.00   0.00   0.00   3.00
+ Coesite      -3.1956E+00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Cordierite_a  5.2272E+01 -16.00   4.00   0.00   0.00   0.00   0.00   2.00   0.00   5.00
+ Cordierite_h  4.9792E+01 -16.00   4.00   0.00   0.00   0.00   0.00   2.00   0.00   5.00
+ Corundum      1.8312E+01  -6.00   2.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Cristobalite -3.4551E+00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Cristobalite -3.0117E+00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Daphnite-14A  5.2266E+01 -16.00   2.00   0.00   0.00   5.00   0.00   0.00   0.00   3.00
+ Daphnite-7A   5.5640E+01 -16.00   2.00   0.00   0.00   5.00   0.00   0.00   0.00   3.00
+ Diaspore      7.1602E+00  -3.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Dicalcium_si  3.7168E+01  -4.00   0.00   2.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Diopside      2.0953E+01  -4.00   0.00   1.00   0.00   0.00   0.00   1.00   0.00   2.00
+ Enstatite     1.1321E+01  -2.00   0.00   0.00   0.00   0.00   0.00   1.00   0.00   1.00
+ Fayalite      1.9106E+01  -4.00   0.00   0.00   0.00   2.00   0.00   0.00   0.00   1.00
+ Fe(OH)2       1.3905E+01  -2.00   0.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00
+ FeO           1.3532E+01  -2.00   0.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00
+ Ferrosilite   7.4414E+00  -2.00   0.00   0.00   0.00   1.00   0.00   0.00   0.00   1.00
+ Forsterite    2.7857E+01  -4.00   0.00   0.00   0.00   0.00   0.00   2.00   0.00   1.00
+ Foshagite     6.5906E+01  -8.00   0.00   4.00   0.00   0.00   0.00   0.00   0.00   3.00
+ Gehlenite     5.6295E+01 -10.00   2.00   2.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Gibbsite      7.7559E+00  -3.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Gismondine    4.1717E+01 -16.00   4.00   2.00   0.00   0.00   0.00   0.00   0.00   4.00
+ Greenalite    2.2660E+01  -6.00   0.00   0.00   0.00   3.00   0.00   0.00   0.00   2.00
+ Grossular     5.1907E+01 -12.00   2.00   3.00   0.00   0.00   0.00   0.00   0.00   3.00
+ Gyrolite      2.2893E+01  -4.00   0.00   2.00   0.00   0.00   0.00   0.00   0.00   3.00
+ Halite        1.5903E+00   0.00   0.00   0.00   1.00   0.00   0.00   0.00   1.00   0.00
+ Hatrurite     7.3402E+01  -6.00   0.00   3.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Hedenbergite  1.9595E+01  -4.00   0.00   1.00   0.00   1.00   0.00   0.00   0.00   2.00
+ Hercynite     2.8849E+01  -8.00   2.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00
+ Hillebrandit  3.6815E+01  -4.00   0.00   2.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Hydrophilite  1.1800E+01   0.00   0.00   1.00   2.00   0.00   0.00   0.00   0.00   0.00
+ Ice           1.3869E-01   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Illite        9.0028E+00  -8.00   2.30   0.00   0.00   0.00   0.60   0.25   0.00   3.50
+ Jadeite       8.3763E+00  -4.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00   2.00
+ K-Feldspar   -2.9422E-01  -4.00   1.00   0.00   0.00   0.00   1.00   0.00   0.00   3.00
+ K2O           8.4041E+01  -2.00   0.00   0.00   0.00   0.00   2.00   0.00   0.00   0.00
+ KMgCl3        2.1262E+01   0.00   0.00   0.00   3.00   0.00   1.00   1.00   0.00   0.00
+ KMgCl3.2H2O   1.3976E+01   0.00   0.00   0.00   3.00   0.00   1.00   1.00   0.00   0.00
+ Kalsilite     1.0892E+01  -4.00   1.00   0.00   0.00   0.00   1.00   0.00   0.00   1.00
+ Kaolinite     6.7973E+00  -6.00   2.00   0.00   0.00   0.00   0.00   0.00   0.00   2.00
+ Katoite       7.8944E+01 -12.00   2.00   3.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Kyanite       1.5668E+01  -6.00   2.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Larnite       3.8462E+01  -4.00   0.00   2.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Laumontite    1.3642E+01  -8.00   2.00   1.00   0.00   0.00   0.00   0.00   0.00   4.00
+ Lawrencite    9.1030E+00   0.00   0.00   0.00   2.00   1.00   0.00   0.00   0.00   0.00
+ Lawsonite     2.2202E+01  -8.00   2.00   1.00   0.00   0.00   0.00   0.00   0.00   2.00
+ Lime          3.2577E+01  -2.00   0.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Margarite     4.1054E+01 -14.00   4.00   1.00   0.00   0.00   0.00   0.00   0.00   2.00
+ Maximum_Micr -2.9424E-01  -4.00   1.00   0.00   0.00   0.00   1.00   0.00   0.00   3.00
+ Mayenite      4.9422E+02 -66.00  14.00  12.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Merwinite     6.8505E+01  -8.00   0.00   3.00   0.00   0.00   0.00   1.00   0.00   2.00
+ Mesolite      1.3601E+01  -7.96   1.99   0.66   0.00   0.00   0.00   0.00   0.68   3.01
+ MgCl2.2H2O    1.2784E+01   0.00   0.00   0.00   2.00   0.00   0.00   1.00   0.00   0.00
+ MgCl2.4H2O    7.3663E+00   0.00   0.00   0.00   2.00   0.00   0.00   1.00   0.00   0.00
+ MgCl2.H2O     1.6127E+01   0.00   0.00   0.00   2.00   0.00   0.00   1.00   0.00   0.00
+ MgOHCl        1.5919E+01  -1.00   0.00   0.00   1.00   0.00   0.00   1.00   0.00   0.00
+ Minnesotaite  1.3957E+01  -6.00   0.00   0.00   0.00   3.00   0.00   0.00   0.00   4.00
+ Monticellite  2.9580E+01  -4.00   0.00   1.00   0.00   0.00   0.00   1.00   0.00   1.00
+ Montmor-Ca    2.4690E+00  -6.00   1.67   0.17   0.00   0.00   0.00   0.33   0.00   4.00
+ Montmor-K     2.1160E+00  -6.00   1.67   0.00   0.00   0.00   0.33   0.33   0.00   4.00
+ Montmor-Mg    2.3615E+00  -6.00   1.67   0.00   0.00   0.00   0.00   0.49   0.00   4.00
+ Montmor-Na    2.4581E+00  -6.00   1.67   0.00   0.00   0.00   0.00   0.33   0.33   4.00
+ Mordenite    -5.2288E+00  -3.76   0.94   0.29   0.00   0.00   0.00   0.00   0.36   5.06
+ Mordenite-de  9.8989E+00  -3.76   0.94   0.29   0.00   0.00   0.00   0.00   0.36   5.06
+ Muscovite     1.3567E+01 -10.00   3.00   0.00   0.00   0.00   1.00   0.00   0.00   3.00
+ Na2O          6.7427E+01  -2.00   0.00   0.00   0.00   0.00   0.00   0.00   2.00   0.00
+ Na2SiO3       2.2236E+01  -2.00   0.00   0.00   0.00   0.00   0.00   0.00   2.00   1.00
+ Na4SiO4       7.0638E+01  -4.00   0.00   0.00   0.00   0.00   0.00   0.00   4.00   1.00
+ Na6Si2O7      1.0161E+02  -6.00   0.00   0.00   0.00   0.00   0.00   0.00   6.00   2.00
+ Natrolite     1.8502E+01  -8.00   2.00   0.00   0.00   0.00   0.00   0.00   2.00   3.00
+ Natrosilite   1.8121E+01  -2.00   0.00   0.00   0.00   0.00   0.00   0.00   2.00   2.00
+ Nepheline     1.3794E+01  -4.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00   1.00
+ Okenite       1.0370E+01  -2.00   0.00   1.00   0.00   0.00   0.00   0.00   0.00   2.00
+ Oxychloride-  2.5832E+01  -3.00   0.00   0.00   1.00   0.00   0.00   2.00   0.00   0.00
+ Paragonite    1.7503E+01 -10.00   3.00   0.00   0.00   0.00   0.00   0.00   1.00   3.00
+ Pargasite     1.0196E+02 -22.00   3.00   2.00   0.00   0.00   0.00   4.00   1.00   6.00
+ Periclase     2.1336E+01  -2.00   0.00   0.00   0.00   0.00   0.00   1.00   0.00   0.00
+ Phlogopite    3.7422E+01 -10.00   1.00   0.00   0.00   0.00   1.00   3.00   0.00   3.00
+ PlagAn10Or5   4.9757E+00  -4.40   1.10   0.10   0.00   0.00   0.05   0.00   0.85   2.95
+ PlagAn5Or5    3.7846E+00  -4.20   1.05   0.05   0.00   0.00   0.05   0.00   0.90   2.90
+ Portlandite   2.2556E+01  -2.00   0.00   1.00   0.00   0.00   0.00   0.00   0.00   0.00
+ Prehnite      3.2914E+01 -10.00   2.00   2.00   0.00   0.00   0.00   0.00   0.00   3.00
+ Pseudowollas  1.3994E+01  -2.00   0.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Pyrophyllite  4.1421E-01  -6.00   2.00   0.00   0.00   0.00   0.00   0.00   0.00   4.00
+ Quartz       -4.0056E+00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Rankinite     5.1898E+01  -6.00   0.00   3.00   0.00   0.00   0.00   0.00   0.00   2.00
+ Ripidolite-1  6.0947E+01 -16.00   2.00   0.00   0.00   2.00   0.00   3.00   0.00   3.00
+ Ripidolite-7  6.4321E+01 -16.00   2.00   0.00   0.00   2.00   0.00   3.00   0.00   3.00
+ Sanidine_hig  9.0499E-01  -4.00   1.00   0.00   0.00   0.00   1.00   0.00   0.00   3.00
+ Saponite-Ca   2.6268E+01  -7.32   0.33   0.17   0.00   0.00   0.00   3.00   0.00   3.67
+ Saponite-H    2.5310E+01  -6.99   0.33   0.00   0.00   0.00   0.00   3.00   0.00   3.67
+ Saponite-K    2.5986E+01  -7.32   0.33   0.00   0.00   0.00   0.33   3.00   0.00   3.67
+ Saponite-Mg   2.6230E+01  -7.32   0.33   0.00   0.00   0.00   0.00   3.17   0.00   3.67
+ Saponite-Na   2.6324E+01  -7.32   0.33   0.00   0.00   0.00   0.00   3.00   0.33   3.67
+ Scolecite     1.5859E+01  -8.00   2.00   1.00   0.00   0.00   0.00   0.00   0.00   3.00
+ Sepiolite     3.0407E+01  -8.00   0.00   0.00   0.00   0.00   0.00   4.00   0.00   6.00
+ SiO2(am)     -2.7200E+00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Sillimanite   1.6302E+01  -6.00   2.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Spinel        3.7630E+01  -8.00   2.00   0.00   0.00   0.00   0.00   1.00   0.00   0.00
+ Stilbite      1.0110E+00  -8.72   2.18   1.02   0.00   0.00   0.01   0.00   0.14   6.82
+ Sylvite       8.5062E-01   0.00   0.00   0.00   1.00   0.00   1.00   0.00   0.00   0.00
+ Tachyhydrite  1.7144E+01   0.00   0.00   1.00   6.00   0.00   0.00   2.00   0.00   0.00
+ Talc          2.1114E+01  -6.00   0.00   0.00   0.00   0.00   0.00   3.00   0.00   4.00
+ Tobermorite-  6.5580E+01 -10.00   0.00   5.00   0.00   0.00   0.00   0.00   0.00   6.00
+ Tobermorite-  6.3811E+01 -10.00   0.00   5.00   0.00   0.00   0.00   0.00   0.00   6.00
+ Tobermorite-  6.9046E+01 -10.00   0.00   5.00   0.00   0.00   0.00   0.00   0.00   6.00
+ Tremolite     6.1190E+01 -14.00   0.00   2.00   0.00   0.00   0.00   5.00   0.00   8.00
+ Tridymite    -3.8288E+00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Wairakite     1.8052E+01  -8.00   2.00   1.00   0.00   0.00   0.00   0.00   0.00   4.00
+ Wollastonite  1.3755E+01  -2.00   0.00   1.00   0.00   0.00   0.00   0.00   0.00   1.00
+ Xonotlite     9.1817E+01 -12.00   0.00   6.00   0.00   0.00   0.00   0.00   0.00   6.00
+ Zoisite       4.3285E+01 -13.00   3.00   2.00   0.00   0.00   0.00   0.00   0.00   3.00
+ H(c)         -7.0000E+00   1.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+
+     GAS REACTIONS
+
+ Gases           log K         Stoichiometric Coefficients
+                            H+     Al+++  Ca++   Cl-    Fe++   K+     Mg++   Na+    SiO2(a 
+ H2O(g)        1.5854E+00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00   0.00
+ HCl(g)        6.3054E+00   1.00   0.00   0.00   1.00   0.00   0.00   0.00   0.00   0.00
+
+    NEW SECONDARY SPECIES LIST 
+
+Al(OH)2+                                                                
+Al13O4(OH)24(7+)                                                        
+Al2(OH)2++++                                                            
+Al3(OH)4(5+)                                                            
+AlO2-                                                                   
+AlOH++                                                                  
+CaCl+                                                                   
+CaCl2(aq)                                                               
+CaOH+                                                                   
+Fe(OH)2(aq)                                                             
+Fe(OH)3-                                                                
+Fe(OH)4--                                                               
+FeCl+                                                                   
+FeCl2(aq)                                                               
+FeCl4--                                                                 
+FeOH+                                                                   
+H2SiO4--                                                                
+H4(H2SiO4)4----                                                         
+H6(H2SiO4)4--                                                           
+HAlO2(aq)                                                               
+HCl(aq)                                                                 
+HSiO3-                                                                  
+KCl(aq)                                                                 
+KOH(aq)                                                                 
+Mg4(OH)4++++                                                            
+MgCl+                                                                   
+NaAlO2(aq)                                                              
+NaCl(aq)                                                                
+NaHSiO3(aq)                                                             
+NaOH(aq)                                                                
+OH-                                                                     
+
+
+    NEW MINERAL LIST 
+
+ Afwillite
+ Akermanite
+ Albite
+ Albite_high
+ Albite_low
+ Amesite-14A
+ Analcime
+ Analcime-dehy
+ Andalusite
+ Annite
+ Anorthite
+ Antarcticite
+ Anthophyllite
+ Antigorite
+ Beidellite-Ca
+ Beidellite-H
+ Beidellite-K
+ Beidellite-Mg
+ Beidellite-Na
+ Bischofite
+ Boehmite
+ Brucite
+ Ca-Al_Pyroxene
+ Ca2Al2O5.8H2O
+ Ca2Cl2(OH)2.H2O
+ Ca3Al2O6
+ Ca4Al2O7.13H2O
+ Ca4Al2O7.19H2O
+ Ca4Cl2(OH)6.13H2O
+ CaAl2O4
+ CaAl2O4.10H2O
+ CaAl4O7
+ Carnallite
+ Celadonite
+ Chalcedony
+ Chamosite-7A
+ Chloromagnesite
+ Chrysotile
+ Clinochlore-14A
+ Clinochlore-7A
+ Clinozoisite
+ Coesite
+ Cordierite_anhyd
+ Cordierite_hydr
+ Corundum
+ Cristobalite(alpha)
+ Cristobalite(beta)
+ Daphnite-14A
+ Daphnite-7A
+ Diaspore
+ Dicalcium_silicate
+ Diopside
+ Enstatite
+ Fayalite
+ Fe(OH)2
+ FeO
+ Ferrosilite
+ Forsterite
+ Foshagite
+ Gehlenite
+ Gibbsite
+ Gismondine
+ Greenalite
+ Grossular
+ Gyrolite
+ Halite
+ Hatrurite
+ Hedenbergite
+ Hercynite
+ Hillebrandite
+ Hydrophilite
+ Ice
+ Illite
+ Jadeite
+ K-Feldspar
+ K2O
+ KMgCl3
+ KMgCl3.2H2O
+ Kalsilite
+ Kaolinite
+ Katoite
+ Kyanite
+ Larnite
+ Laumontite
+ Lawrencite
+ Lawsonite
+ Lime
+ Margarite
+ Maximum_Microcline
+ Mayenite
+ Merwinite
+ Mesolite
+ MgCl2.2H2O
+ MgCl2.4H2O
+ MgCl2.H2O
+ MgOHCl
+ Minnesotaite
+ Monticellite
+ Montmor-Ca
+ Montmor-K
+ Montmor-Mg
+ Montmor-Na
+ Mordenite
+ Mordenite-dehy
+ Muscovite
+ Na2O
+ Na2SiO3
+ Na4SiO4
+ Na6Si2O7
+ Natrolite
+ Natrosilite
+ Nepheline
+ Okenite
+ Oxychloride-Mg
+ Paragonite
+ Pargasite
+ Periclase
+ Phlogopite
+ PlagAn10Or5
+ PlagAn5Or5
+ Portlandite
+ Prehnite
+ Pseudowollastonite
+ Pyrophyllite
+ Quartz
+ Rankinite
+ Ripidolite-14A
+ Ripidolite-7A
+ Sanidine_high
+ Saponite-Ca
+ Saponite-H
+ Saponite-K
+ Saponite-Mg
+ Saponite-Na
+ Scolecite
+ Sepiolite
+ SiO2(am)
+ Sillimanite
+ Spinel
+ Stilbite
+ Sylvite
+ Tachyhydrite
+ Talc
+ Tobermorite-11A
+ Tobermorite-14A
+ Tobermorite-9A
+ Tremolite
+ Tridymite
+ Wairakite
+ Wollastonite
+ Xonotlite
+ Zoisite
+ H(c)
+
+
+  ***KINETIC INPUTS***
+
+   MINERAL
+
+
+  ******  GEOCHEMICAL CONDITIONS INPUT  ******
+
+
+  Condition Label: basalt
+
+
+  Primary species    itype     guess      Total conc.  Constraint phase
+  H+                   7    6.3096E-10    0.0000E+00                       
+  Al+++                1    1.0000E-06    2.0800E-03                       
+  Ca++                 1    1.0000E-06    5.2000E-05                       
+  Cl-                  2    1.0000E-06    0.0000E+00                       
+  Fe++                 1    1.0000E-06    6.1000E-05                       
+  K+                   1    1.0000E-06    1.8000E-05                       
+  Mg++                 1    1.0000E-06    5.0000E-06                       
+  Na+                  1    1.0000E-06    2.1800E-03                       
+  SiO2(aq)             1    1.0000E-06    3.9000E-04                       
+
+  Porosity for this chemical condition =   1.0000
+
+
+
+   ********  SPECIATION OF GEOCHEMICAL CONDITIONS  ********
+
+
+ *********************************************
+  ---> GEOCHEMICAL CONDITION: basalt
+
+  Temperature (C)         =     35.000
+  Porosity                =      1.000
+  Liquid Saturation       =      1.000
+  Liquid Density (kg/m^3) =    994.063
+  Solid Density (kg/m^3)  =      0.000
+  Solid:Solution Ratio    =      0.000
+  Ionic Strength          =      0.003
+  Solution pH             =      9.200
+  Total Charge            =  6.072E-18
+
+ Total Aqueous Concentrations of Primary Species  
+ --------------------------------------- 
+
+ Species                Molality     Constraint    Constraint Phase 
+ H+                  -8.4582E-03     Activity                         
+ Al+++                2.0800E-03     Total                           
+ Ca++                 5.2000E-05     Total                           
+ Cl-                  2.1579E-04     Charge                          
+ Fe++                 6.1000E-05     Total                           
+ K+                   1.8000E-05     Total                           
+ Mg++                 5.0000E-06     Total                           
+ Na+                  2.1800E-03     Total                           
+ SiO2(aq)             3.9000E-04     Total                           
+
+ Concentrations of Individual Species, Exchangers, and Surface Complexes 
+ ----------------------------------------------------------------------- 
+
+                           Log        Log                                 Activity
+ Species              Molality   Activity      Molality      Activity   Coefficient    Type
+  H+                    -9.177     -9.200     6.646E-10     6.310E-10     9.494E-01  Aqueous 
+  Al+++                -17.450    -17.654     3.550E-18     2.220E-18     6.254E-01  Aqueous 
+  Ca++                  -4.284     -4.379     5.199E-05     4.181E-05     8.042E-01  Aqueous 
+  Cl-                   -3.666     -3.691     2.157E-04     2.038E-04     9.447E-01  Aqueous 
+  Fe++                  -4.371     -4.465     4.260E-05     3.426E-05     8.042E-01  Aqueous 
+  K+                    -4.745     -4.769     1.800E-05     1.700E-05     9.447E-01  Aqueous 
+  Mg++                  -5.301     -5.393     4.999E-06     4.046E-06     8.094E-01  Aqueous 
+  Na+                   -2.663     -2.687     2.173E-03     2.055E-03     9.456E-01  Aqueous 
+  SiO2(aq)              -3.518     -3.518     3.033E-04     3.034E-04     1.001E+00  Aqueous 
+  Al(OH)2+              -9.261     -9.285     5.483E-10     5.184E-10     9.456E-01  Aqueous 
+  Al13O4(OH)24(7+)     -32.667    -33.827     2.154E-33     1.489E-34     6.913E-02  Aqueous 
+  Al2(OH)2++++         -24.216    -24.597     6.085E-25     2.527E-25     4.153E-01  Aqueous 
+  Al3(OH)4(5+)         -29.449    -30.041     3.554E-30     9.096E-31     2.559E-01  Aqueous 
+  AlO2-                 -2.683     -2.707     2.077E-03     1.964E-03     9.456E-01  Aqueous 
+  AlOH++               -13.027    -13.124     9.397E-14     7.519E-14     8.002E-01  Aqueous 
+  CaCl+                 -8.726     -8.751     1.878E-09     1.776E-09     9.456E-01  Aqueous 
+  CaCl2(aq)            -12.433    -12.433     3.688E-13     3.690E-13     1.001E+00  Aqueous 
+  CaOH+                 -8.004     -8.029     9.899E-09     9.360E-09     9.456E-01  Aqueous 
+  Fe(OH)2(aq)           -6.665     -6.665     2.161E-07     2.162E-07     1.001E+00  Aqueous 
+  Fe(OH)3-              -7.841     -7.865     1.443E-08     1.364E-08     9.456E-01  Aqueous 
+  Fe(OH)4--            -13.568    -13.665     2.706E-14     2.162E-14     7.988E-01  Aqueous 
+  FeCl+                 -8.272     -8.296     5.346E-09     5.055E-09     9.456E-01  Aqueous 
+  FeCl2(aq)            -14.260    -14.260     5.491E-15     5.494E-15     1.001E+00  Aqueous 
+  FeCl4--              -17.269    -17.367     5.379E-18     4.296E-18     7.988E-01  Aqueous 
+  FeOH+                 -4.741     -4.765     1.816E-05     1.717E-05     9.456E-01  Aqueous 
+  H2SiO4--              -7.980     -8.078     1.046E-08     8.358E-09     7.988E-01  Aqueous 
+  H4(H2SiO4)4----      -12.821    -13.212     1.510E-13     6.142E-14     4.069E-01  Aqueous 
+  H6(H2SiO4)4--         -9.214     -9.312     6.108E-10     4.879E-10     7.988E-01  Aqueous 
+  HAlO2(aq)             -5.659     -5.658     2.194E-06     2.196E-06     1.001E+00  Aqueous 
+  HCl(aq)              -12.194    -12.194     6.397E-13     6.401E-13     1.001E+00  Aqueous 
+  HSiO3-                -4.092     -4.116     8.093E-05     7.652E-05     9.456E-01  Aqueous 
+  KCl(aq)               -9.877     -9.876     1.328E-10     1.329E-10     1.001E+00  Aqueous 
+  KOH(aq)              -10.030    -10.029     9.339E-11     9.345E-11     1.001E+00  Aqueous 
+  Mg4(OH)4++++         -24.140    -24.522     7.243E-25     3.008E-25     4.153E-01  Aqueous 
+  MgCl+                 -9.192     -9.216     6.425E-10     6.075E-10     9.456E-01  Aqueous 
+  NaAlO2(aq)            -6.083     -6.083     8.255E-07     8.259E-07     1.001E+00  Aqueous 
+  NaCl(aq)              -7.127     -7.127     7.462E-08     7.466E-08     1.001E+00  Aqueous 
+  NaHSiO3(aq)           -5.237     -5.237     5.791E-06     5.795E-06     1.001E+00  Aqueous 
+  NaOH(aq)              -7.979     -7.979     1.049E-08     1.050E-08     1.001E+00  Aqueous 
+  OH-                   -4.456     -4.480     3.501E-05     3.309E-05     9.451E-01  Aqueous 
+
+
+  ****** Partial pressure of gases (bars) *****
+
+ H2O(g)               4.61282871E-02
+ HCl(g)               1.70633010E-19
+
+  ****** Saturation state of minerals (log[Q/K] *****
+
+  Afwillite               -23.2040
+  Akermanite               -9.6474
+  Albite                    3.4666
+  Albite_high               2.2106
+  Albite_low                3.4668
+  Amesite-14A              13.8722
+  Analcime                  2.9371
+  Analcime-dehy            -3.1931
+  Andalusite                1.7807
+  Annite                   17.6647
+  Anorthite                 2.0455
+  Antarcticite            -15.8537
+  Anthophyllite            -1.0679
+  Antigorite               46.9238
+  Beidellite-Ca             7.9515
+  Beidellite-H              6.5518
+  Beidellite-K              7.3168
+  Beidellite-Mg             7.8391
+  Beidellite-Na             7.6936
+  Bischofite              -17.1669
+  Boehmite                  3.0275
+  Brucite                  -2.6603
+  Ca-Al_Pyroxene           -3.5125
+  Ca2Al2O5.8H2O           -11.6334
+  Ca2Cl2(OH)2.H2O         -24.0292
+  Ca3Al2O6                -46.3547
+  Ca4Al2O7.13H2O          -31.2758
+  Ca4Al2O7.19H2O          -27.7033
+  Ca4Cl2(OH)6.13H2O       -38.0249
+  CaAl2O4                 -10.5531
+  CaAl2O4.10H2O            -4.0806
+  CaAl4O7                 -10.7219
+  Carnallite              -25.5070
+  Celadonite                6.3180
+  Chalcedony                0.0421
+  Chamosite-7A             13.4844
+  Chloromagnesite         -33.7291
+  Chrysotile                2.1145
+  Clinochlore-14A          10.6407
+  Clinochlore-7A            7.3430
+  Clinozoisite              6.7056
+  Coesite                  -0.4809
+  Cordierite_anhyd         -0.4778
+  Cordierite_hydr           1.9024
+  Corundum                  3.0658
+  Cristobalite(alpha       -0.2247
+  Cristobalite(beta)       -0.6429
+  Daphnite-14A             29.7030
+  Daphnite-7A              26.4131
+  Diaspore                  3.4150
+  Dicalcium_silicate      -11.4017
+  Diopside                 -0.1931
+  Enstatite                -1.3583
+  Fayalite                  6.1151
+  Fe(OH)2                   0.5716
+  FeO                       1.0054
+  Ferrosilite               3.3079
+  Forsterite               -4.1896
+  Foshagite               -18.3167
+  Gehlenite                -9.0864
+  Gibbsite                  2.7782
+  Gismondine               12.0394
+  Greenalite               13.0563
+  Grossular                 1.9662
+  Gyrolite                 -4.9222
+  Halite                   -7.9849
+  Hatrurite               -32.3803
+  Hedenbergite              2.0409
+  Hercynite                 6.9482
+  Hillebrandite           -11.1321
+  Hydrophilite            -23.0856
+  Ice                      -0.1789

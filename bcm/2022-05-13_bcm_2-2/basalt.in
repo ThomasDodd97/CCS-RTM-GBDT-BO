@@ -1,0 +1,123 @@
+TITLE
+2022-05-05_basalt-cube-model_2-2
+END
+
+RUNTIME
+timestep_max            1000000
+time_units              years
+time_tolerance          0.01
+hindmarsh               false
+solver                  gmres
+gimrt                   false
+screen_output           50
+database                Dodd.dbs
+graphics                tecplot
+END
+
+OUTPUT
+time_units              years
+spatial_profile         0.0001  2e+10    4E+10    6e+10    8E+10   10e+10   12E+10   14e+10   16E+10    18e+10   20e+10
+END 
+
+DISCRETIZATION
+distance_units          centimeters
+xzones                  1   1.0
+yzones                  1   1.0
+zzones                  1   1.0
+END
+
+PRIMARY_SPECIES
+H+
+HCO3-
+Al+++
+Ca++
+Cl-
+Fe++
+K+
+Mg++
+Na+
+SiO2(aq)
+END
+
+SECONDARY_SPECIES
+CO2(aq)
+CO3--
+OH-
+Al(OH)2+
+AlO2-
+CaCl+
+CaOH+
+Fe(OH)2(aq)
+Fe(OH)3-
+FeCl+
+FeOH+
+H2SiO4--
+H6(H2SiO4)4--
+HAlO2(aq)
+HSiO3-
+KCl(aq)
+KOH(aq)
+MgCl+
+NaAlO2(aq)
+NaCl(aq)
+NaHSiO3(aq)
+NaOH(aq)
+END
+
+MINERALS
+Diopside                -label default
+Diopside_acid           -label acid -associate Diopside
+Hedenbergite            -label default
+Hedenbergite_acid       -label acid -associate Hedenbergite 
+Albite                  -label default
+Albite_acid             -label acid -associate Albite
+Anorthite               -label default
+Anorthite_acid          -label acid -associate Anorthite
+Forsterite              -label default
+Forsterite_acid         -label acid -associate Forsterite
+Fayalite                -label default
+Fayalite_acid           -label acid -associate Fayalite
+K-Feldspar              -label default
+K-Feldspar_acid         -label acid -associate K-Feldspar
+K-Feldspar_basic        -label basic -associate K-Feldspar
+Calcite                 -label default
+Calcite_acid            -label acid -associate Calcite
+Magnesite               -label default
+Magnesite_acid          -label acid -associate Magnesite
+Siderite                -label default
+Siderite_acid           -label acid -associate Siderite
+END
+
+POROSITY
+porosity_update         true
+END
+
+INITIAL_CONDITIONS
+basalt 1 1 1
+END
+
+CONDITION basalt
+units                   mol/kg
+temperature             35.0
+pH                      9.2
+!HCO3-                   6.00E-6
+HCO3-                   6.00E-2
+Al+++                   2.08E-3
+Ca++                    5.20E-5
+Fe++                    6.10E-5
+K+                      1.80E-5
+Mg++                    5.00E-6
+Na+                     charge
+SiO2(aq)                3.90E-4
+Cl-                     6.00E-6
+Diopside                0.098       ssa     0.0034
+Albite                  0.091       ssa     0.0225
+Anorthite               0.133       ssa     0.0225
+Hedenbergite            0.056       ssa     0.0034
+Forsterite              0.056       ssa     0.0900
+Fayalite                0.035       ssa     0.0360
+K-Feldspar              0.231       ssa     0.0190
+Calcite                 1.0E-10     ssa     0.0370
+Magnesite               1.0E-10     ssa     0.0662
+Siderite                1.0E-10     ssa     0.1050
+END

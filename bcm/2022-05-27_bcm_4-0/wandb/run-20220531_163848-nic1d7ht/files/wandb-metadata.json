@@ -1,0 +1,15 @@
+{
+    "os": "macOS-12.4-x86_64-i386-64bit",
+    "python": "3.10.4",
+    "heartbeatAt": "2022-05-31T15:38:54.994034",
+    "startedAt": "2022-05-31T15:38:48.968731",
+    "docker": null,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "<python with no main file>",
+    "host": "XYZ660.local",
+    "username": "thomasdodd",
+    "executable": "/Users/thomasdodd/opt/anaconda3/envs/omphalos/bin/python"
+}

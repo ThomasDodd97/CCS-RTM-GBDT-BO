@@ -1,0 +1,61 @@
+2022-06-02_bcm_4_notes.txt
+Omphalos runs of the adapted 2022-05-20_bcm_3-0 model.
+
+2022-05-27_bcm_4-0 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+First Omphalos run of the 2022-05-20_bcm_3-0 model. Due to the varying of pH, two Omphalos runs
+were carried out: the first 5000 runs with Cl- balancing charge, and the second 5000 runs with
+Na+ balancing the charge balance.
+
+Run 1 - basalt_cl-.yaml + basalt_cl-.in + Dodd.dbs + Omphalos/Rhea ---> 5000 .out files +  collate ---> basalt_cl-.pkl
+Varied using random uniform method in the .yaml file:
+pH      3   5
+[Ca++]  0   3.0E-4
+[Fe++]  0   3.0E-4
+[Mg++]  0   3.0E-4
+
+Run 2 - basalt_na+.yaml + basalt_na+.in + Dodd.dbs + Omphalos/Rhea ---> 5000 .out files + collate ---> basalt_na+.pkl
+Varied using random uniform method in the .yaml file:
+pH      3   5
+[Ca++]  0   3.0E-4
+[Fe++]  0   3.0E-4
+[Mg++]  0   3.0E-4
+
+These two .pkl files were unpickled in basalt_AnalysisX.ipynb file series, here the two datasets are
+visualised in isolation and later merged to create an overview visualisation (See basalt_Analysis4.ipynb).
+
+2022-05-31_bcm_4-1 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Second Omphalos run of the 2022-05-20_bcm_3-0 model. As the pH created a great deal of variation,
+a more constrained Rhea run was created, dealing with only Ca++, Fe++, and Mg++.
+Since the pH of the injection fluid was fixed the cl- charge balanced .in file could be used,
+hence the two .pkl datasets later generated are named basalt_cl-.pkl and basalt_cl-_2.pkl.
+The two datasets are merged for training of an XGBoost emulator, which can predict metrics of
+interest (e.g. total carbonate volume fraction increase) from changes in input parameters in the
+.in file (e.g. [Ca++], [Fe++], [Mg++]). This emulator is tested by visualising predicted outputs in
+2D (basalt_AnalysisEmulation1.ipynb) and later in 3D (basalt.AnalysisEmulationPlotting1.ipynb) and
+comparing these outputs with actual Reactice Transport Model (RTM) runs that are done on Titan distributed CPU system at the 
+Earth Sciences department. The actual control RTM runs that are done have their associated .yaml, .in, and 
+.pkl files kept with their respective folders (control_ca, control_fe, control_mg).
+
+Run 1 - basalt_cl-.yaml + basalt_cl-.in + Dodd.dbs + Omphalos/Rhea ---> 5,000 .out files +  collate ---> basalt_cl-.pkl
+Varied using random uniform method in the .yaml file:
+[Ca++]  0   3.0E-4
+[Fe++]  0   3.0E-4
+[Mg++]  0   3.0E-4
+
+Run 2 - basalt_cl-.yaml + basalt_cl-.in + Dodd.dbs + Omphalos/Rhea ---> 10,000 .out files +  collate ---> basalt_cl-.pkl
+Varied using random uniform method in the .yaml file:
+[Ca++]  0   3.0E-4
+[Fe++]  0   3.0E-4
+[Mg++]  0   3.0E-4
+
+Control Run 1 - basalt_cl-_ctrl-ca++.yaml + basalt_cl-_ctrl-ca++.in + Dodd.dbs ---> 100 .out files + collate ---> basalt_cl-_ctrl-ca++.pkl
+[Ca++]  0   3.0E-4
+
+Control Run 2 - basalt_cl-_ctrl-fe++.yaml + basalt_cl-_ctrl-fe++.in + Dodd.dbs ---> 100 .out files + collate ---> basalt_cl-_ctrl-fe++.pkl
+[Fe++]  0   3.0E-4
+
+Control Run 3 - basalt_cl-_ctrl-mg++.yaml + basalt_cl-_ctrl-mg++.in + Dodd.dbs ---> 100 .out files + collate ---> basalt_cl-_ctrl-mg++.pkl
+[Mg++]  0   3.0E-4
+
+The latest XGBoost model has been saved as bcm_xgbModel_4-1.json in the folder, and is opened to
+make predictions in the basalt_AnalysisEmulationPlotting1.ipynb file.

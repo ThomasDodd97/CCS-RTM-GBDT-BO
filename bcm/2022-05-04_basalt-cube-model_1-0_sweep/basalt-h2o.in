@@ -1,0 +1,101 @@
+TITLE
+2022-05-05_basalt-cube-model_1-0
+END
+
+RUNTIME
+time_units              days
+time_tolerance          0.01
+hindmarsh               false
+solver                  gmres
+gimrt                   false
+screen_output           50
+database                SukindaCr53.dbs
+database_sweep          true
+END
+
+OUTPUT
+time_units              days
+spatial_profile         0.0001  1   2   3   4   5
+END
+
+DISCRETIZATION
+distance_units          centimeters
+xzones                  1   1.0
+yzones                  1   1.0
+zzones                  1   1.0
+END
+
+PRIMARY_SPECIES
+H+
+SiO2(aq)
+Mg++
+Fe++
+Ca++
+Al+++
+Na+
+Cl-
+END
+
+SECONDARY_SPECIES
+OH-
+Al(OH)2+
+Al13O4(OH)24(7+)
+Al2(OH)2++++
+Al3(OH)4(5+)
+AlO2-
+AlOH++
+CaCl+
+CaCl2(aq)
+CaOH+
+Fe(OH)2(aq)
+Fe(OH)3-
+Fe(OH)4--
+FeCl+
+FeCl2(aq)
+FeCl4--
+FeOH+
+H2SiO4--
+H4(H2SiO4)4----
+H6(H2SiO4)4--
+HAlO2(aq)
+HCl(aq)
+HSiO3-
+Mg4(OH)4++++
+MgCl+
+NaAlO2(aq)
+NaCl(aq)
+NaHSiO3(aq)
+NaOH(aq)
+END
+
+MINERALS
+Forsterite              -label default
+Fayalite                -label default
+Wollastonite            -label default
+Enstatite               -label default
+Ferrosilite             -label default
+Anorthite               -label default
+Albite                  -label default
+END
+
+INITIAL_CONDITIONS
+basalt 1 1 1
+END
+
+CONDITION basalt
+pH                      7
+SiO2(aq)                1.0e-6
+Mg++                    1.0e-6
+Fe++                    1.0e-6
+Ca++                    1.0e-6
+Al+++                   1.0e-6
+Na+                     1.0e-6
+Cl-                     charge
+Forsterite              0.08       ssa    0.01
+Fayalite                0.04       ssa    0.01
+Wollastonite            0.05       ssa    0.01
+Enstatite               0.14       ssa    0.01
+Ferrosilite             0.07       ssa    0.01
+Anorthite               0.36       ssa    0.01
+Albite                  0.20       ssa    0.01
+END

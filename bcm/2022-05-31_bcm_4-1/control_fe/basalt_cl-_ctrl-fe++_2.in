@@ -1,0 +1,125 @@
+TITLE
+2022-05-31_bcm_4-1_cl-
+END
+
+RUNTIME
+timestep_max            0.0001
+time_units              years
+time_tolerance          0.01
+hindmarsh               false
+solver                  gmres
+gimrt                   false
+screen_output           50
+database                Dodd.dbs
+graphics                tecplot
+END
+
+OUTPUT
+time_units              years
+spatial_profile         0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 2 3 4 5 6 7 8 9 10
+END 
+
+DISCRETIZATION
+distance_units          centimeters
+xzones                  1   1.0
+yzones                  1   1.0
+zzones                  1   1.0
+END
+
+PRIMARY_SPECIES
+H+
+HCO3-
+Al+++
+Ca++
+Cl-
+Fe++
+K+
+Mg++
+Na+
+SiO2(aq)
+END
+
+SECONDARY_SPECIES
+CO2(aq)
+CO3--
+OH-
+Al(OH)2+
+AlO2-
+CaCl+
+CaOH+
+Fe(OH)2(aq)
+Fe(OH)3-
+FeCl+
+FeOH+
+H2SiO4--
+H6(H2SiO4)4--
+HAlO2(aq)
+HSiO3-
+KCl(aq)
+KOH(aq)
+MgCl+
+NaAlO2(aq)
+NaCl(aq)
+NaHSiO3(aq)
+NaOH(aq)
+END
+
+GASES
+END
+
+MINERALS
+Diopside                    -label default
+Diopside_a                  -label acid -associate Diopside
+Hedenbergite                -label default
+Hedenbergite_a              -label acid -associate Hedenbergite
+Albite                      -label default
+Albite_a                    -label acid -associate Albite
+Anorthite                   -label default
+Anorthite_a                 -label acid -associate Anorthite
+M_Microcline                -label default
+M_Microcline_a              -label acid -associate M_Microcline
+M_Microcline_b              -label basic -associate M_Microcline
+Forsterite                  -label default
+Forsterite_a                -label acid -associate Forsterite
+Fayalite                    -label default
+Fayalite_a                  -label acid -associate Fayalite
+Calcite                     -label default
+Calcite_a                   -label acid -associate Calcite
+Magnesite                   -label default
+Magnesite_a                 -label acid -associate Magnesite
+Siderite                    -label default
+Siderite_a                  -label acid -associate Siderite
+END
+
+POROSITY
+porosity_update         true
+END
+
+INITIAL_CONDITIONS
+basalt                      1-1     1-1     1-1
+END
+
+CONDITION     basalt
+units         mol/kg
+temperature   35.0
+pH            3.70
+HCO3-         0.82
+Al+++         1.19E-3
+Ca++          1.0922841574764136E-4
+Fe++          2.0458518197753574E-4
+K+            2.40E-5
+Mg++          2.8166497794217927E-4
+Na+           2.04E-3
+SiO2(aq)      5.90E-4
+Cl-           charge
+Diopside                0.128       ssa     0.0034
+Hedenbergite            0.073       ssa     0.0034
+Albite                  0.119       ssa     0.0225
+Anorthite               0.174       ssa     0.0225
+M_Microcline            0.302       ssa     0.0190
+Forsterite              0.073       ssa     0.0900
+Fayalite                0.046       ssa     0.0360
+Calcite                 1.0E-10     ssa     0.0370
+Magnesite               1.0E-10     ssa     0.0662
+Siderite                1.0E-10     ssa     0.1050
+END

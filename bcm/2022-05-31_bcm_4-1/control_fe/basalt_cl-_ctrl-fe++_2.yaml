@@ -1,0 +1,27 @@
+# template can either be specified as either the relative or absolute path to the inputs.
+template: 'basalt_cl-_ctrl-fe++_2.in'
+database: 'Dodd.dbs'
+aqueous_database:
+catabolic_pathways:
+# Timeout in seconds for any one input file.
+timeout: 600
+# conditions must match geochemical condition names in concentration dict
+conditions:
+    - 'basalt'
+# Number of files in this run.
+number_of_files: 100
+
+# Number of nodes to use if running in parallel. ESC Titan has 440 total (14-01-21)
+nodes: 300
+
+# Options for setting parameters:
+    # linspace
+    # random_uniform
+    # constant
+    # custom
+
+concentrations:
+    basalt:
+        Fe++:
+        - 'random_uniform'
+        - [0,3.0E-4]

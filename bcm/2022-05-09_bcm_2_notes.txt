@@ -1,0 +1,119 @@
+2022-05-11_bcm_2_notes.txt
+
+2022-05-11_bcm_2-0 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This test takes the composition of unaltered basalt in table 1 of:
+Liu, D., et al. (2019). "Reactive transport modeling of mineral carbonation in unaltered and altered basalts during CO2 sequestration." International Journal of Greenhouse Gas Control 85: 109-120.
+this informs the CONDITION basalt and the MINERALS blocks.
+temperature (oC); specified as for background water (table 1).
+Aqueous species type, concentration; specified in CONDITION basalt block as for background water (table 2) Concentration of Fe++ and Fe+++ split equally.
+Mineral type, Initial volume fraction (dec. %), Specific surface area (m^2 g^-1); specified in CONDITION basalt block as for flood basalt (table 1).
+
+An arbitrarily sized brick of basalt was set to 1*1*1 cm in the DISCRETIZATION block.
+The INITIAL_CONDITIONS block is set to the only block discretized with the basalt CONDITION block referenced i.e. basalt 1 1 1
+
+By cross referencing between the minerals specified above and the databases dissolution reations for all these primary minerals
+we can find which primary species are evolved and need placing in the PRIMARY_SPECIES block.
+NOTE although not noted in the above reactions, we add Fe+++ because we know its there: it goes in the SECONDARY_SPECIES block, otherwise we get errors
+NOTE that H2O is assumed to be a part of the primary species and doesn't therefore need specifying.
+
+A sweep test i.e. database_sweep is set to true in the RUNTIME block, and the block of basalt simulated.
+After running, the basalt.out file is examined: of interest is the "concentrations of individual species, exchangers, and surface complexes"
+Here, we should note that any species with a log molality above -12 (i.e. a pred conc above 10E-12) should be added to the
+secondary species section in the next model when we turn off the sweep function off.
+
+NOTE Mineral kinetics in the .dbs need fixing they are currently placeholder values
+
+2022-05-11_bcm_2-1 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This test now incorporates the secondary species identified in the first sweep based model.
+
+This test aims to incorporate secondary mineralogy.
+
+This test aims to incorporate kinetics of minerals specified.
+
+By assuming an initial porosity of 30% in the basalt (in line with the paper from earlier) we need to adapt the
+minerals' volume fractions!
+
+Q: Attempted to add the secondary minerals, but don't know where/what to specify...?
+    e.g. should I incorporate those from the sweep or those from reading...
+A: Later we'll have a further think; mg based data- tracks authigenic (in-place) clays
+    Add any secondaries from the paper to the mineral section
+
+Q: I had to remove Fe+++ again from the primary components because it through errors when runnin
+    i.e. the error was to do with Fe+++ not being involved in any reactions...
+    Further to this, Fe+++ isn't specified for H2O concentrations in the paper, just Fe as a whole- help?
+A: It seems the system is anoxic, don't place iron+++ in yet- no iron+++ used in any of the reactions
+
+Q: Attempted to add kinetics to the database, but need help specifying and then calling these...
+    Further to this, alkaline how to specify dependence, it has a different metric...
+    How does !cis and (kcal/mole) effect the kinetic blocks in .dbs?
+    When I specify both the labels normal and acid, it says that 14 minerals are in use instead of 7...
+A: Linking methodology taught.
+
+Q: Should the porosity block be set up as such- or does it automatically work out pore vol etc
+A: Yes, that is fine.
+
+Q: By specifying charge over Na+ I have removed its concentration- should this be of concern?
+A: No, such small balancing concentrations have little effect on overall sys.
+
+Q: I specified temperature in the basalt condition block- is this correct?
+A: Yes, that is fine.
+
+2022-05-13_bcm_2-2 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This model incorporates fixes from Fridays work with Angus.
+i.e.
+    Fixed the linking between database and minerals.
+    Added all the secondary minerals recognised in the paper.
+    Ran to a couple 1000 years until a pseudo steady state was reached.
+
+
+2022-05-17_bcm_2-3 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Having had a chat with Angus we found that the rates for the various minerals were all too high.
+These rates were derived from the Liu paper- which is modelling a basalt at much greater pressures than we are concerned with for a box model.
+Things were dissolving all too fast to be realistic.
+We therefore reduced the rates within the .in file, overriding the rates I had set inside the .dbs file.
+
+We managed to get these rates to a point where we were happy, but a new problem materialised- all the carbonate minerals were undersaturated.
+No matter how much inorganic carbon was added (HCO3-) to the mix, the calcite refused to go from undersaturated to oversaturated in the model.
+We think that due to the extremely high pH, all the HCO3- is immediately turned into CO3-- and H+ to try to counteract this proton deficiency
+this therefore disallows the oversaturation of calcite as calcite precipitation is dependent upon the presence of HCO3-.
+
+Adaptations made:
+    1) We altered the time period investigated by altering the spatial_profile in the OUTPUT block.
+    2) We altered the rates directly by specifying a -rate next to mineral names in the MINERALS block.
+    3) We altered the composition of the fluid in the basalt CONDITION block.
+    4) We altered the time stepping by changing timestep_max in the RUNTIME block.
+
+I will therefore investigate the extremely high pH mentioned in the paper as well as the specified Keq values specified in the .dbs file.
+
+Looked at the paper again and realized that we had been attempting to run the model
+at a high pH for a high amount of DIC- this was erroneous!
+Altered the fluid composition and ran the model again to try to identify what
+is going on
+
+2022-05-18_bcm_2-4 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Having spent the morning working together with Angus, we found that the paper we were working on
+uses pressures higher than we have assumed so far.
+To simulate pressures similar to that within their paper we need to adapt any parameters that
+are changed by pressure- crunchtope cant adapt in the same way it does with temperature- we need to
+specify new.
+
+Respecified the log k values- 300 oC are wrong though...
+
+Myself and Angus found a website which the Liu paper seemingly obtained its log k values for basaltic minerals
+under pressure. The website is located at: https://models.earth.indiana.edu/supcrtbl.php
+
+Another website that proved extremely helpful was the thermoddem page: https://thermoddem.brgm.fr/
+
+Here, we specified the minerals being investigated and the conditions they were being subjected to;
+in this case we used the reservoir temperature and pressures specified in the liu paper, which were
+35oC and 5.2MPa (52bar). 
+
+Once the log K files were downloaded we transcribed the values into their respective positions in the
+crunchtope database file. Due to a lack of data on SUPCRTBL about K-Feldspar we had to substitute 
+microcline into its place, which is reasonable as it is the low temperature end member of the
+plagioclase group that fits the bill.
+
+By the end of the 2022-05-20 we had a model that was behaving a lot like the Liu papers model of 
+flow basalt with injection water passing into it. I have therefore decided to initiate a new test series
+which will seek to implement the flow basalt, mixed basalt, and the serpentinized basalts separately, in
+a bid to emulate the liu model across the board...

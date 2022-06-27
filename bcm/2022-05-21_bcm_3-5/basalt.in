@@ -1,0 +1,122 @@
+TITLE
+2022-05-21_bcm_3-5
+END
+
+RUNTIME
+timestep_max            0.0001
+time_units              years
+time_tolerance          0.01
+hindmarsh               false
+solver                  gmres
+gimrt                   false
+screen_output           50
+database                Dodd.dbs
+graphics                tecplot
+END
+
+OUTPUT
+time_units              years
+spatial_profile         0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 2 3 4 5 6 7 8 9 10
+END 
+
+DISCRETIZATION
+distance_units          centimeters
+xzones                  1   1.0
+yzones                  1   1.0
+zzones                  1   1.0
+END
+
+PRIMARY_SPECIES
+H+
+HCO3-
+Al+++
+Ca++
+Cl-
+Fe++
+K+
+Mg++
+Na+
+SiO2(aq)
+END
+
+SECONDARY_SPECIES
+CO2(aq)
+CO3--
+OH-
+Al(OH)2+
+AlO2-
+CaCl+
+CaOH+
+Fe(OH)2(aq)
+Fe(OH)3-
+FeCl+
+FeOH+
+H2SiO4--
+H6(H2SiO4)4--
+HAlO2(aq)
+HSiO3-
+KCl(aq)
+KOH(aq)
+MgCl+
+NaAlO2(aq)
+NaCl(aq)
+NaHSiO3(aq)
+NaOH(aq)
+END
+
+MINERALS
+Diopside                    -label default -rate -11.11
+Diopside_a                  -label acid -associate Diopside -rate -6.36
+Hedenbergite                -label default -rate -11.11
+Hedenbergite_a              -label acid -associate Hedenbergite -rate -6.36
+Albite                      -label default -rate -12.00
+Albite_a                    -label acid -associate Albite -rate -8.86
+Anorthite                   -label default -rate -12.00
+Anorthite_a                 -label acid -associate Anorthite -rate -8.86
+M_Microcline                -label default -rate -12.41
+M_Microcline_a              -label acid -associate M_Microcline -rate -9.45
+M_Microcline_b              -label basic -associate M_Microcline -rate -21.20
+Antigorite                  -label default -rate -12.08
+Antigorite_a                -label acid -associate Antigorite -rate -10.01
+Greenalite                  -label default -rate -12.09
+Greenalite_a                -label acid -associate Greenalite -rate -10.01
+Calcite                     -label default -rate -5.81
+Calcite_a                   -label acid -associate Calcite -rate -0.3
+Magnesite                   -label default -rate -9.34
+Magnesite_a                 -label acid -associate Magnesite -rate -5.62
+Siderite                    -label default -rate -8.90
+Siderite_a                  -label acid -associate Siderite -rate -3.74
+END
+
+POROSITY
+porosity_update         true
+END
+
+INITIAL_CONDITIONS
+basalt                      1 1 1
+END
+
+CONDITION     basalt
+units         mol/kg
+temperature   35.0
+pH            3.70
+HCO3-         0.82
+Al+++         1.19E-3
+Ca++          1.30E-5
+Fe++          2.10E-5
+K+            2.40E-5
+Mg++          1.60E-4
+Na+           2.04E-3
+SiO2(aq)      5.90E-4
+Cl-           charge
+Diopside                0.146       ssa     0.0034
+Hedenbergite            0.055       ssa     0.0034
+Albite                  0.165       ssa     0.0225
+Anorthite               0.110       ssa     0.0225
+M_Microcline            0.302       ssa     0.0190
+Antigorite              0.037       ssa     1.2600
+Greenalite              0.101       ssa     1.2600
+Calcite                 1.0E-10     ssa     0.0370
+Magnesite               1.0E-10     ssa     0.0662
+Siderite                1.0E-10     ssa     0.1050
+END

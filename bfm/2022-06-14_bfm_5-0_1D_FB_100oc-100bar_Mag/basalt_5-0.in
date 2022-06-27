@@ -1,0 +1,201 @@
+TITLE
+2022-06-14_bfm_5-0_1D_FB_100oc-100bar_Mag
+END
+
+RUNTIME
+timestep_max            0.01
+time_units              days
+time_tolerance          0.0001
+hindmarsh               false
+gimrt                   true
+gimrt_pc                bjacobi
+gimrt_pclevel           2
+gimrt_solver            gmres
+pc                      ilu
+solver                  bicg
+pclevel                 5
+screen_output           1
+database                Dodd_100oc-100bar_Magnetite.dbs
+graphics                tecplot
+END
+
+OUTPUT
+time_units              days
+spatial_profile         0.0001  42  84  140  210  280
+END
+
+PRIMARY_SPECIES
+H+
+CO2(aq)
+Al+++
+Ca++
+Cl-
+Fe++
+K+
+Mg++
+Na+
+SiO2(aq)
+O2(aq)
+END
+
+SECONDARY_SPECIES
+HCO3-
+CO3--
+OH-
+Al(OH)2+
+CaCl+
+CaOH+
+FeCl+
+FeOH+
+HSiO3-
+KCl(aq)
+KOH(aq)
+MgCl+
+NaCl(aq)
+NaHSiO3(aq)
+NaOH(aq)
+H2(aq)
+END
+
+GASES
+CO2(g)
+O2(g)
+END
+
+MINERALS
+Diopside                    -label default
+Diopside_a                  -label acid -associate Diopside
+Hedenbergite                -label default
+Hedenbergite_a              -label acid -associate Hedenbergite
+Albite                      -label default
+Albite_a                    -label acid -associate Albite
+Anorthite                   -label default
+Anorthite_a                 -label acid -associate Anorthite
+M_Microcline                -label default
+M_Microcline_a              -label acid -associate M_Microcline
+M_Microcline_b              -label basic -associate M_Microcline
+Forsterite                  -label default
+Forsterite_a                -label acid -associate Forsterite
+Fayalite                    -label default
+Fayalite_a                  -label acid -associate Fayalite
+Antigorite                  -label default
+Antigorite_a                -label acid -associate Antigorite
+Greenalite                  -label default
+Greenalite_a                -label acid -associate Greenalite
+Magnetite                   -label default -rate -8.0
+! Talc                        -label default
+Calcite                     -label default
+Calcite_a                   -label acid -associate Calcite
+Siderite                    -label default
+Siderite_a                  -label acid -associate Siderite
+Magnesite                   -label default
+Magnesite_a                 -label acid -associate Magnesite
+END
+
+DISCRETIZATION
+distance_units              millimeters
+xzones                      19      2
+yzones                      1       11.04
+zzones                      1       0.14
+END
+
+INITIAL_CONDITIONS
+bf_b_seventy                 1-19   1-1     1-1
+END
+
+BOUNDARY_CONDITIONS
+x_begin                     f_i_onehundred  dirichlet
+x_end                       b_na_zero       flux
+y_begin                       b_na_zero       flux
+y_end                       b_na_zero       flux
+z_begin                       b_na_zero       flux
+z_end                       b_na_zero       flux
+END
+
+TRANSPORT
+distance_units              meters
+time_units                  seconds
+fix_diffusion               7.5E-9
+END
+
+POROSITY
+porosity_update             true
+END
+
+! Xiongs Pure Water Experiment
+CONDITION       f_i_onehundred
+units           mol/kg
+temperature     100
+pH              charge
+CO2(aq)         CO2(g)     100
+Al+++           1.00E-10
+Ca++            1.00E-10
+Fe++            1.00E-10
+K+              1.00E-10
+Mg++            1.00E-10
+Na+             1.00E-10
+SiO2(aq)        1.00E-10
+Cl-             1.00E-10
+O2(aq)          1.00E-10
+END
+
+CONDITION       bf_b_seventy
+units           mol/kg
+temperature     100
+pH              charge
+CO2(aq)         1.00E-10
+Al+++           1.00E-10
+Ca++            1.00E-10
+Fe++            1.00E-10
+K+              1.00E-10
+Mg++            1.00E-10
+Na+             1.00E-10
+SiO2(aq)        1.00E-10
+Cl-             1.00E-10
+O2(aq)          1.00E-10
+Diopside        0.042       ssa     0.0017
+Hedenbergite    0.024       ssa     0.0017
+Albite          0.039       ssa     0.0225
+Anorthite       0.057       ssa     0.0225
+M_Microcline    0.099       ssa     0.0190
+Forsterite      0.024       ssa     0.0090
+Fayalite        0.015       ssa     0.0018
+Antigorite      1.0E-10     ssa     0.1800
+Greenalite      1.0E-10     ssa     0.1800
+Magnetite       1.0E-10     ssa     25.000
+Calcite         1.0E-10     ssa     0.0370
+Magnesite       1.0E-10     ssa     0.0662
+! Siderite        1.0E-10     ssa     0.000033
+Siderite        1.0E-10     ssa     0.1050
+END
+
+CONDITION       b_na_zero
+units           mol/kg
+temperature     100
+pH              charge
+CO2(aq)         CO2(g)     100
+Al+++           1.00E-10
+Ca++            1.00E-10
+Fe++            1.00E-10
+K+              1.00E-10
+Mg++            1.00E-10
+Na+             1.00E-10
+SiO2(aq)        1.00E-10
+Cl-             1.00E-10
+O2(aq)          1.00E-10
+Diopside        0.14        ssa     0.0034
+Hedenbergite    0.08        ssa     0.0034
+Albite          0.13        ssa     0.0225
+Anorthite       0.19        ssa     0.0225
+M_Microcline    0.33        ssa     0.0190
+
+Forsterite      0.08        ssa     0.0900
+Fayalite        0.05        ssa     0.0360
+
+Antigorite      1.0E-10     ssa     1.2600
+Greenalite      1.0E-10     ssa     1.2600
+Magnetite       1.0E-10     ssa     25.000
+Calcite         1.0E-10     ssa     0.0370
+Magnesite       1.0E-10     ssa     0.0662
+Siderite        1.0E-10     ssa     0.1050
+END
