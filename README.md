@@ -5,7 +5,7 @@ Carbon Capture Storage (CCS) relevant Reactive Transport Modelling (RTM) of micr
 
 In 2022, an MRes project at the University of Cambridge on the subject of optimisation of CCS was initiated; this focussed upon the mineralisation of carbon that takes place when CO2 saturated fluid is pumped into fractured basaltic rock. The aim of this was to potentially find out what the best aqueous species compositions would be for injected carbonated fluids that are pumped down into such fractured basaltic fields of rock. The objectives therefore, were to firstly generate an RTM which mimicked the real-life geochemistry experienced in such basalts, secondly to obtain a dataset that might be representative of the behaviour of such a geochemical environment as you alter the composition of fluids it is exposed to, thirdly to train a lightweight model to replicate the behaviours of the underlying RTM allowing faster querying of the parameter space with respect to carbonates generated as a function of fluid composition, and finally to use a bayesian optimisation framework to carry out a structured analysis and optimisation of the geochemical system modelled to generate the highest amounts of carbonate possible by manipulating the fluid composition.
 
-This README is intended to give an overview of the project and its development, as well as provide further information on the code lodged in this repository. The GitHub repository itself has the purpose of providing open and transparent access to all the methods applied during the course of this project. Unfortunately, the datasets generated during the course of this project are not available online due to their shear size; but if required email
+This README is intended to give an overview of the project and its development, as well as provide further information on the code lodged in this repository. The GitHub repository itself has the purpose of providing open and transparent access to all the methods applied during the course of this project. Unfortunately, the datasets generated during the course of this project are not available online due to their shear size; but if required, email myself (Thomas) and I will do my utmost to make data available.
 
 # Timeline: Method Development
 
@@ -61,6 +61,6 @@ Project Lead - Thomas Højlund-Dodd - MRes/PhD Student, The University of Cambri
 Project Supervisor - Alexandra Turchyn - Professor of Biogeochemistry, The University of Cambridge
 * atur07@esc.cam.ac.uk
 
-Project Co-Supervisor - Angus Fotherby - PhD Student, The University of CambridgeUniversity
+Project Co-Supervisor - Angus Fotherby - PhD Student, The University of Cambridge
 * af606@cam.ac.uk
 * https://github.com/a-fotherby
